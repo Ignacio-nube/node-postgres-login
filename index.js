@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 // Configuración de la conexión a PostgreSQL
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.POSTGRES_URL,
   // En producción (como en Vercel), puede que necesites SSL
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
