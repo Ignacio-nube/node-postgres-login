@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const { Pool } = require('pg');
+const path = require('path');
+
 
 const app = express();
 // Vercel usa la variable de entorno PORT, si no existe, usamos el 3000
@@ -14,7 +16,8 @@ const pool = new Pool({
 });
 
 // Middleware para servir archivos estáticos (nuestro index.html)
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Middleware para parsear el cuerpo de las peticiones POST
 app.use(express.urlencoded({ extended: true }));
 
