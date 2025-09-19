@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
   // En producción (como en Vercel), puede que necesites SSL
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+  ssl: true,
 });
 
 // Middleware para servir archivos estáticos (nuestro index.html)
